@@ -20,6 +20,21 @@
         }
     }
 
+    expectInteger(){
+        result := this.result
+        if result is integer
+        {
+            returnStr := % "Test: '" . this.desc . "' passed"
+            Test.totalTests++
+            Test.totalPassed++
+            return returnStr
+        }else{
+            returnStr := % "Test: '" . this.desc . "' ***FAILED***"
+            Test.totalTests++
+            return returnStr
+        }
+    }
+
     expectGreaterThan(expectedResult){
         if(this.result > expectedResult){
             returnStr := % "Test: '" . this.desc . "' passed"
