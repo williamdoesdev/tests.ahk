@@ -2,15 +2,65 @@
     Static totalTests := 0
     Static totalPassed := 0
 
-    __New(desc, ref, params*){
-        this.funcRef := ref
+    __New(desc, result){
         this.desc := desc
-        this.params := params
+        this.result := result
     }
 
     expectToBe(expectedResult){
-        result := this.funcRef.Call(this.params*)
-        if(result = expectedResult){
+        if(this.result = expectedResult){
+            returnStr := % "Test: '" . this.desc . "' passed"
+            Test.totalTests++
+            Test.totalPassed++
+            return returnStr
+        }else{
+            returnStr := % "Test: '" . this.desc . "' ***FAILED***"
+            Test.totalTests++
+            return returnStr
+        }
+    }
+
+    expectGreaterThan(expectedResult){
+        if(this.result > expectedResult){
+            returnStr := % "Test: '" . this.desc . "' passed"
+            Test.totalTests++
+            Test.totalPassed++
+            return returnStr
+        }else{
+            returnStr := % "Test: '" . this.desc . "' ***FAILED***"
+            Test.totalTests++
+            return returnStr
+        }
+    }
+
+    expectGreaterThanEqualTo(expectedResult){
+        if(this.result >= expectedResult){
+            returnStr := % "Test: '" . this.desc . "' passed"
+            Test.totalTests++
+            Test.totalPassed++
+            return returnStr
+        }else{
+            returnStr := % "Test: '" . this.desc . "' ***FAILED***"
+            Test.totalTests++
+            return returnStr
+        }
+    }
+
+    expectLessThan(expectedResult){
+        if(this.result < expectedResult){
+            returnStr := % "Test: '" . this.desc . "' passed"
+            Test.totalTests++
+            Test.totalPassed++
+            return returnStr
+        }else{
+            returnStr := % "Test: '" . this.desc . "' ***FAILED***"
+            Test.totalTests++
+            return returnStr
+        }
+    }
+
+    expectLessThanEqualTo(expectedResult){
+        if(this.result <= expectedResult){
             returnStr := % "Test: '" . this.desc . "' passed"
             Test.totalTests++
             Test.totalPassed++
