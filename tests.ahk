@@ -35,13 +35,7 @@
 
     expectObjectWithKey(expectedKey){
         if(IsObject(this.result)){
-            keyFound := 0
-            For key, value in this.result{
-                if(key = expectedKey){
-                    keyFound := 1
-                }
-            }
-            if(keyFound = 1){
+            if(this.result.HasKey(expectedKey)){
                 returnStr := % "Test: '" . this.desc . "' passed"
                 Test.totalTests++
                 Test.totalPassed++
@@ -88,7 +82,7 @@
         }
     }
 
-        expectAlpha(){
+    expectAlpha(){
         result := this.result
         if result is alpha
         {
@@ -148,6 +142,32 @@
             Test.totalTests++
             Test.totalPassed++
             return returnStr
+        }else{
+            returnStr := % "Test: '" . this.desc . "' ***FAILED***"
+            Test.totalTests++
+            return returnStr
+        }
+    }
+
+    expectException(){
+        if(IsObject(this.result)){
+            expectedKeys := ["Message", "What", "File", "Line"]
+            keysFound := 0
+            For i, element in expectedKeys{
+                if(this.result.HasKey(element)){
+                    keysFound++
+                }
+            }
+            if(keysFound = 4){
+                returnStr := % "Test: '" . this.desc . "' passed"
+                Test.totalTests++
+                Test.totalPassed++
+                return returnStr
+            }else{
+                returnStr := % "Test: '" . this.desc . "' ***FAILED***"
+                Test.totalTests++
+                return returnStr
+            }
         }else{
             returnStr := % "Test: '" . this.desc . "' ***FAILED***"
             Test.totalTests++
