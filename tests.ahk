@@ -20,6 +20,44 @@
         }
     }
 
+    expectObject(){
+        if(IsObject(this.result)){
+            returnStr := % "Test: '" . this.desc . "' passed"
+            Test.totalTests++
+            Test.totalPassed++
+            return returnStr
+        }else{
+            returnStr := % "Test: '" . this.desc . "' ***FAILED***"
+            Test.totalTests++
+            return returnStr
+        }
+    }
+
+    expectObjectWithKey(expectedKey){
+        if(IsObject(this.result)){
+            keyFound := 0
+            For key, value in this.result{
+                if(key = expectedKey){
+                    keyFound := 1
+                }
+            }
+            if(keyFound = 1){
+                returnStr := % "Test: '" . this.desc . "' passed"
+                Test.totalTests++
+                Test.totalPassed++
+                return returnStr
+            }else{
+                returnStr := % "Test: '" . this.desc . "' ***FAILED***"
+                Test.totalTests++
+                return returnStr  
+            }
+        }else{
+            returnStr := % "Test: '" . this.desc . "' ***FAILED***"
+            Test.totalTests++
+            return returnStr
+        }
+    }
+
     expectInteger(){
         result := this.result
         if result is integer

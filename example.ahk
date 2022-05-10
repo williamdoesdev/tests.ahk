@@ -5,11 +5,12 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 #Include tests.ahk
 #Include ..\..\logger\logger.ahk\logger.ahk
-debug := new Logger({showLevel: false})
+console := new Logger({showLevel: false})
 
-debug.log( new Test("1 + 3 should be 4", TestClass.sum(1, 3)).expectToBe(4) )
-debug.log( new Test("should be true", false).expectToBe(true) )
-debug.log( Test.report() )
+console.log( new Test("1 + 3 should be 4", TestClass.sum(1, 3)).expectToBe(4) )
+console.log( new Test("should be true", false).expectToBe(true) )
+console.log( new Test("object with key should be true", {testKey: 1}).expectObjectWithKey("testKey") )
+console.log( Test.report() )
 
 class TestClass{
     sum(a, b){
