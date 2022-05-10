@@ -4,19 +4,15 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 #Include tests.ahk
-#Include ..\..\logger\logger.ahk\logger.ahk
-console := new Logger({showLevel: false})
 
-console.log( new Test("Expect 1 + 3 = 4", TestClass.sum(1, 3)).expectToBe(4) )
-console.log( new Test("Expect true", true).expectToBe(true) )
-console.log( new Test("Expect object with key: testKey", {testKey: 1}).expectObjectWithKey("testKey") )
-console.log( new Test("Expect exception object", Exception("Test exception")).expectException(true) )
-console.log( Test.report() )
+msgbox, % new Test("Expect 1 + 3 = 4", TestClass.sum(1, 3)).expectToBe(4)
+msgbox, % new Test("Expect true", true).expectToBe(true)
+msgbox, % new Test("Expect object with key: testKey", {testKey: 1}).expectObjectWithKey("testKey")
+msgbox, % new Test("Expect exception object", Exception("Test exception")).expectException(true)
+msgbox, % Test.report()
 
 class TestClass{
     sum(a, b){
         return a + b
     }
 }
-
-msgbox
