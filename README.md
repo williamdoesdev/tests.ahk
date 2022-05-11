@@ -1,5 +1,5 @@
 # Tests.ahk
-A simple testing library for AutoHotKey.
+A simple test class for AutoHotKey.
 
 # Usage
 The intended way of using this library is by creating a new instance of the test class for each test you want to run. For example:
