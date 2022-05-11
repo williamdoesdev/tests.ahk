@@ -2,7 +2,7 @@
 A simple testing library for AutoHotKey.
 
 # Usage
-The intended way of uses this library is by creating a new instance of the test class for each test you want to run. For example:
+The intended way of using this library is by creating a new instance of the test class for each test you want to run. For example:
 ```
 new Test("Expect 1 + 1 = 2", 1 + 1).expectToBe(2)
 ```
