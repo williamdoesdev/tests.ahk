@@ -18,12 +18,12 @@ Multiple "expect" methods can be called to check for various conditions.
 | Method | Description |
 | --- | --- |
 | expectToBe() | Expect the provided expression to equal the expected expression. |
-| expectException() | Expect the provided expression to equal an exception object. |
-| expectObject() | Expect the provided expression to equal an object. |
-| expectObjectWithKey() | Expect the provided expression to equal an object and to have the expected key. |
-| expectInteger() | Expect the provided expression to equal an integer. |
-| expectFloat() | Expect the provided expression to equal a float. |
-| expectAlpha() | Expect the provided expression to equal a string composed only of alphabetical characters. |
+| expectException() | Expect the provided expression to be an exception object. |
+| expectObject() | Expect the provided expression to be an object. |
+| expectObjectWithKey() | Expect the provided expression to be an object and to have the expected key. |
+| expectInteger() | Expect the provided expression to be an integer. |
+| expectFloat() | Expect the provided expression to be a float. |
+| expectAlpha() | Expect the provided expression to be a string composed only of alphabetical characters. |
 | expectGreaterThan() | Expect the provided expression to be greater than the expected expression. |
 | expectGreaterThanEqualTo() | Expect the provided expression to be greater than or equal to the expected expression. |
 | expectLessThan() | Expect the provided expression to be less than the expected expression. |
